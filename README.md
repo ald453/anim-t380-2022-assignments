@@ -1,4 +1,3 @@
 # anim-t380-2022-assignments
 
-this is a test
-hello!!
+this repo contains all of my assignments for my Intro to Technical Direction class!
