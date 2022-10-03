@@ -1,5 +1,5 @@
 # Assignment 2 // Adrianna Deeb
-# STILL A WORK IN PROGRESS
+# This script creates a number of toruses and saves the scene as a Maya ASCII file
 
 # import argparse, maya standalone, and maya commands
 import argparse
@@ -11,7 +11,7 @@ parser = argparse.ArgumentParser(description='This script creates a bunch of tor
 parser.add_argument('num_torus', type=int, help="Number of Toruses")
 args = parser.parse_args()
 
-print("Creating {} cube(s)...".format(args.num_torus))
+print("Creating {} torus(es)...".format(args.num_torus))
 
 # initializing maya standalone
 maya.standalone.initialize()
@@ -25,5 +25,9 @@ for i in range(args.num_torus):
 print("Meshes in the Maya scene:", maya.cmds.ls(geometry=True))
 
 # save file as a Maya ASCII file
-maya.cmds.file((input("Name the Maya File to save")) + ".ma")
-maya.cmds.file(save=True, type='mayaAscii')
+name = input("Name the Maya file to save: ")
+maya.cmds.file( rename= name + '.ma' )
+maya.cmds.file( save=True, type='mayaAscii' )
+
+# uninitailize maya standalone to prevent it from continuing to run in the background
+maya.standalone.uninitialize()
